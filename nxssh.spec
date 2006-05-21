@@ -1,8 +1,6 @@
 %define		_version_major	1.5.0
 %define		_version_minor	23
 
-%bcond_with     ldap            # with ldap support
-%bcond_without  libedit         # without libedit (editline/history support in sftp client)
 %bcond_without  kerberos5       # without kerberos5 support
 
 Summary:	Modified openssh client, used by nxclient
@@ -14,14 +12,12 @@ Group:		X11/Applications/Networking
 #Source0Download: http://www.nomachine.com/sources.php
 Source0:	http://web04.nomachine.com/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
 # Source0-md5:	86df9d5f03bd7e1e1930f129fe87347d
+Patch0:		%{name}-heimdal.patch
 URL:		http://www.nomachine.com/
 BuildRequires:	autoconf
 %{?with_kerberos5:BuildRequires:	heimdal-devel >= 0.7}
-%{?with_libedit:BuildRequires:  libedit-devel}
-%{?with_selinux:BuildRequires:  libselinux-devel}
 BuildRequires:	libwrap-devel
-BuildRequires:	nx-devel
-%{?with_ldap:BuildRequires:     openldap-devel}
+BuildRequires:	nxcomp-devel
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
@@ -34,6 +30,7 @@ Modified openssh client, used by nxclient.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 %{__autoconf}
@@ -73,4 +70,3 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-FIXME
