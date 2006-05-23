@@ -1,9 +1,11 @@
+#
+# Conditional build:
+%bcond_without  kerberos5       # without kerberos5 support
+#
 %define		_version_major	1.5.0
 %define		_version_minor	23
-
-%bcond_without  kerberos5       # without kerberos5 support
-
 Summary:	Modified openssh client, used by nxclient
+Summary(pl):	Zmodyfikowany klient openssh u¿ywany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
 Release:	1
@@ -27,6 +29,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Modified openssh client, used by nxclient.
 
+%description -l pl
+Zmodyfikowany klient openssh u¿ywany przez nxclienta.
+
 %prep
 %setup -q -n %{name}
 %patch0 -p1
@@ -34,24 +39,24 @@ Modified openssh client, used by nxclient.
 %build
 %{__autoconf}
 %configure \
-		PERL=%{__perl} \
-		--with-dns \
-		--with-pam \
-		--with-mantype=man \
-		--with-md5-passwords \
-		--with-ipaddr-display \
-		%{?with_libedit:--with-libedit} \
-		--with-4in6 \
-		--disable-suid-ssh \
-		--with-tcp-wrappers \
-		%{?with_ldap:--with-libs="-lldap -llber"} \
-		%{?with_ldap:--with-cppflags="-DWITH_LDAP_PUBKEY"} \
-		%{?with_kerberos5:--with-kerberos5} \
-		--with-privsep-path=%{_privsepdir} \
-		--with-pid-dir=%{_localstatedir}/run \
-		--with-xauth=%{_bindir}/xauth \
-		--enable-utmpx \
-		--enable-wtmpx
+	PERL=%{__perl} \
+	--with-dns \
+	--with-pam \
+	--with-mantype=man \
+	--with-md5-passwords \
+	--with-ipaddr-display \
+	%{?with_libedit:--with-libedit} \
+	--with-4in6 \
+	--disable-suid-ssh \
+	--with-tcp-wrappers \
+	%{?with_ldap:--with-libs="-lldap -llber"} \
+	%{?with_ldap:--with-cppflags="-DWITH_LDAP_PUBKEY"} \
+	%{?with_kerberos5:--with-kerberos5} \
+	--with-privsep-path=%{_privsepdir} \
+	--with-pid-dir=%{_localstatedir}/run \
+	--with-xauth=%{_bindir}/xauth \
+	--enable-utmpx \
+	--enable-wtmpx
 
 echo '#define LOGIN_PROGRAM		   "/bin/login"' >>config.h
 
