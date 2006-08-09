@@ -8,7 +8,7 @@ Summary:	Modified openssh client, used by nxclient
 Summary(pl):	Zmodyfikowany klient openssh u¿ywany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 #Source0Download: http://www.nomachine.com/sources.php
