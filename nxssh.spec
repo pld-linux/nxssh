@@ -19,6 +19,7 @@ URL:		http://www.nomachine.com/
 BuildRequires:	autoconf
 %{?with_kerberos5:BuildRequires:	heimdal-devel >= 0.7}
 BuildRequires:	nxcomp-devel
+BuildRequires:	libwrap-devel
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	pam-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
