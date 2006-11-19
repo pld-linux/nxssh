@@ -2,18 +2,18 @@
 # Conditional build:
 %bcond_without  kerberos5       # without kerberos5 support
 #
-%define		_version_major	1.5.0
-%define		_version_minor	23
+%define		_version_major	2.0.0
+%define		_version_minor	12
 Summary:	Modified openssh client, used by nxclient
 Summary(pl):	Zmodyfikowany klient openssh u¿ywany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
-Release:	2
+Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 #Source0Download: http://www.nomachine.com/sources.php
 Source0:	http://web04.nomachine.com/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
-# Source0-md5:	86df9d5f03bd7e1e1930f129fe87347d
+# Source0-md5:	a651351524f0c146794f403632b6b401
 Patch0:		%{name}-heimdal.patch
 URL:		http://www.nomachine.com/
 BuildRequires:	autoconf
