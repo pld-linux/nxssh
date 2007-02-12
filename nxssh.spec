@@ -5,7 +5,7 @@
 %define		_version_major	2.0.0
 %define		_version_minor	12
 Summary:	Modified openssh client, used by nxclient
-Summary(pl):	Zmodyfikowany klient openssh uøywany przez nxclienta
+Summary(pl.UTF-8):   Zmodyfikowany klient openssh u≈ºywany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
 Release:	1
@@ -30,8 +30,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Modified openssh client, used by nxclient.
 
-%description -l pl
-Zmodyfikowany klient openssh uøywany przez nxclienta.
+%description -l pl.UTF-8
+Zmodyfikowany klient openssh u≈ºywany przez nxclienta.
 
 %prep
 %setup -q -n %{name}
