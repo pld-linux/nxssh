@@ -8,16 +8,15 @@ Summary:	Modified openssh client, used by nxclient
 Summary(pl.UTF-8):	Zmodyfikowany klient openssh używany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 #Source0Download: http://www.nomachine.com/sources.php
 Source0:	http://web04.nomachine.com/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
 # Source0-md5:	a651351524f0c146794f403632b6b401
-Patch0:		%{name}-heimdal.patch
 URL:		http://www.nomachine.com/
 BuildRequires:	autoconf
-%{?with_kerberos5:BuildRequires:	heimdal-devel >= 0.7}
+%{?with_kerberos5:BuildRequires:	krb5-devel}
 BuildRequires:	libwrap-devel
 BuildRequires:	nxcomp-devel
 BuildRequires:	openssl-devel >= 0.9.7d
@@ -35,7 +34,6 @@ Zmodyfikowany klient openssh używany przez nxclienta.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
 
 %build
 %{__autoconf}
