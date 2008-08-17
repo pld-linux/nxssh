@@ -2,18 +2,18 @@
 # Conditional build:
 %bcond_without  kerberos5       # without kerberos5 support
 #
-%define		_version_major	2.0.0
-%define		_version_minor	12
+%define		_version_major	3.2.0
+%define		_version_minor	1
 Summary:	Modified openssh client, used by nxclient
 Summary(pl.UTF-8):	Zmodyfikowany klient openssh używany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
-Release:	2
+Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 #Source0Download: http://www.nomachine.com/sources.php
 Source0:	http://web04.nomachine.com/download/%{_version_major}/sources/%{name}-%{_version_major}-%{_version_minor}.tar.gz
-# Source0-md5:	a651351524f0c146794f403632b6b401
+# Source0-md5:	6d4955376ea1dfcb6971b2b46d31ece1
 URL:		http://www.nomachine.com/
 BuildRequires:	autoconf
 %{?with_kerberos5:BuildRequires:	krb5-devel}
@@ -59,7 +59,7 @@ Zmodyfikowany klient openssh używany przez nxclienta.
 
 echo '#define LOGIN_PROGRAM		   "/bin/login"' >>config.h
 
-%{__make}
+%{__make} nxssh
 
 %install
 rm -rf $RPM_BUILD_ROOT
