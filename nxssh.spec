@@ -8,7 +8,7 @@ Summary:	Modified openssh client, used by nxclient
 Summary(pl.UTF-8):	Zmodyfikowany klient openssh używany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 #Source0Download: http://www.nomachine.com/sources.php
@@ -16,7 +16,7 @@ Source0:	http://web04.nomachine.com/download/%{_version_major}/sources/%{name}-%
 # Source0-md5:	e9bb4c1cd61c42db9626894845fcf3f7
 URL:		http://www.nomachine.com/
 BuildRequires:	autoconf
-%{?with_kerberos5:BuildRequires:	krb5-devel}
+%{?with_kerberos5:BuildRequires:	heimdal-devel}
 BuildRequires:	libwrap-devel
 BuildRequires:	nxcomp-devel
 BuildRequires:	openssl-devel >= 0.9.7d
