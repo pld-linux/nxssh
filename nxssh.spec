@@ -8,7 +8,7 @@ Summary:	Modified openssh client, used by nxclient
 Summary(pl.UTF-8):	Zmodyfikowany klient openssh używany przez nxclienta
 Name:		nxssh
 Version:	%{_version_major}.%{_version_minor}
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Networking
 #Source0Download: http://www.nomachine.com/sources.php
@@ -25,6 +25,8 @@ BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	sed >= 4.0
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_privsepdir	/usr/share/empty
 
 %description
 Modified openssh client, used by nxclient.
@@ -50,7 +52,7 @@ Zmodyfikowany klient openssh używany przez nxclienta.
 	--with-tcp-wrappers \
 	%{?with_ldap:--with-libs="-lldap -llber"} \
 	%{?with_ldap:--with-cppflags="-DWITH_LDAP_PUBKEY"} \
-	%{?with_kerberos5:--with-kerberos5} \
+	%{?with_kerberos5:--with-kerberos5=%{_prefix}} \
 	--with-privsep-path=%{_privsepdir} \
 	--with-pid-dir=%{_localstatedir}/run \
 	--with-xauth=%{_bindir}/xauth \
