@@ -36,6 +36,9 @@ Zmodyfikowany klient openssh używany przez nxclienta.
 
 %prep
 %setup -q -n %{name}
+# drop unused libraries
+%{__sed} -e 's/ -lstdc++ -lpng -ljpeg / /' \
+	-i configure.ac
 
 %build
 %{__autoconf}
