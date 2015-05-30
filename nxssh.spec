@@ -1,5 +1,5 @@
 # NOTE
-# - nxproxy is built in nx.spec in pld
+# - nxssh is built in nx.spec in pld
 #   https://github.com/pld-linux/nx/commit/5843d362d78ea5fc3689d34a391622b1d8a110e0
 #
 # Conditional build:
